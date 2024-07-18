@@ -1,7 +1,5 @@
 @import '../../vars';
 
-$menu-height: 8dvh;
-
 .header {
     background-color: $med-blue;
     width: 100dvw;
@@ -29,6 +27,13 @@ $menu-height: 8dvh;
             stroke-width: 0;
             fill: $light-blue;
             padding: calc($menu-height * (1.5 / 9))
+        }
+
+        #hamburger,
+        #hamburger-open {
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         #hamburger-open {

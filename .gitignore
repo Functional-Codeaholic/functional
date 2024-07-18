@@ -17,6 +17,8 @@ db.sqlite3
 media/
 staticfiles/
 *.pyc
+*.env
+backend/*.env
 
 # Node.js
 frontend/node_modules/

@@ -19,8 +19,6 @@ export default function RootLayout({
       <body className=''>
         <Header />
         {children}
-        <div id="test-block"></div>
-        <div id="contact"></div>
       </body>
     </html>
   );

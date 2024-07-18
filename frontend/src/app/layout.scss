@@ -1,6 +1,6 @@
 @import './vars';
 
-#test-block {
-    min-width: 100dvw;
-    min-height: 100dvh;
+.page {
+    width: 100dvw;
+    height: calc(100dvh - $menu-height);
 }

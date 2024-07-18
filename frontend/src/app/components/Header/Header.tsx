@@ -16,7 +16,7 @@ const Header = () => {
     }
 
     useEffect(() => {
-        const contactLink = document.querySelector('#contact-link')
+        const contactLink = document.querySelector('.header a')
 
         const provideHapticFeedback = () => {
             if (navigator.vibrate) {
@@ -47,18 +47,20 @@ const Header = () => {
             </nav>
 
             <div className="logo">
-                <Image
-                    src="/images/logoHuge.png"
-                    alt="Logo for Functional Codeaholic - Web Development by Brian Quinney"
-                    id = "logo"
-                    className='logo'
-                    width={100}
-                    height={100}
-                    sizes={`(min-width: ${hd4kMin}px) 256px, (min-width: ${hd1080Min}px) 200px, (min-width: ${tabletMin}px) 150px, (min-width: ${mobileMin}px) 100px, 100px`}
-                />
+                <Link href='/'>
+                    <Image
+                        src="/images/logoHuge.png"
+                        alt="Logo for Functional Codeaholic - Web Development by Brian Quinney"
+                        id = "logo"
+                        className='logo'
+                        width={100}
+                        height={100}
+                        sizes={`(min-width: ${hd4kMin}px) 256px, (min-width: ${hd1080Min}px) 200px, (min-width: ${tabletMin}px) 150px, (min-width: ${mobileMin}px) 100px, 100px`}
+                    />
+                </Link>
             </div>
             <div className="contact">
-                <Link href="#contact" id="contact-link" ><Contact /></Link>
+                <Link href="#contact"><Contact /></Link>
             </div>
         </header>
     );
