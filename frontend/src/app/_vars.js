@@ -1,0 +1,10 @@
+export const siteName = "Functional Codeaholic";
+export const siteOwner = "Functional Codeaholic";
+export const siteUrl = "https://functional-codeaholic.github.io";
+export const contactPhone = "tel:801-833-7826";
+export const contactEmail = "mailto:QuinneyBrianM@gmail.com";
+export const mobileMin = 0;
+export const tabletMin = 768;
+export const standardMin = 1024;
+export const hd1080Min = 1920;
+export const hd4kMin = 3840;

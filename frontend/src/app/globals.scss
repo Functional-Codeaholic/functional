@@ -1,0 +1,27 @@
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@font-face {
+  font-family: Functional_Sans;
+  src:  url('/fonts/Leoscar-Sans-Serif.otf') format('opentype'),
+        url('/fonts/Leoscar-Sans-Serif.woff') format('woff'),
+        url('/fonts/Leoscar-Sans-Serif.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Functional_Serif;
+  src:  url('/fonts/Leoscar-Serif.otf') format('opentype'),
+        url('/fonts/Leoscar-Serif.woff') format('woff'),
+        url('/fonts/Leoscar-Serif.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
