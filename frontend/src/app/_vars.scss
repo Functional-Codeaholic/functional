@@ -1,3 +1,24 @@
+// Standard sizes of various elements reused throughout site
+$menu-height: 8svh; // sets menu height to standard of 8vh
+$gold-ratio: calc((1 + sqrt(5)) / 2);
+$fib25: calc($gold-ratio * 25);
+$minRem: calc(100% / $fib25);
+$stdFontSize: max(1rem, $minRem);
+$fontSizeH4: 1rem;
+$fontSizeH3: calc($fontSizeH4 / ($gold-ratio / 2));
+$fontSizeH2: calc($fontSizeH3 / ($gold-ratio / 2));
+$fontSizeH1: calc($fontSizeH2 / ($gold-ratio / 2));
+$fontSizeH5: calc($fontSizeH4 * ($gold-ratio / 2));
+$fontSizeH6: calc($fontSizeH5 * ($gold-ratio / 2));
+
+// BREAKPOINT VIEWPORT SIZES
+$mobileMin: 0px;
+$tabletMin: 768px;
+$standardMin: 1024px;
+$hd1080Min: 1920px;
+$hd4kMin: 3840px;
+
+// Theme Colors
 $light-blue: #0afcfe;
 $med-blue: #025597;
 $dark-blue: #030b20;
@@ -5,4 +26,5 @@ $light-red: #ff3844;
 $med-red: #cb2018;
 $dark-red: #200303;
 
-$menu-height: 8dvh;
+// Other Theme Elements
+$fontFamily: Functional_Sans;

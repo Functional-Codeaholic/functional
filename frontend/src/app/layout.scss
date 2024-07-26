@@ -1,6 +1,11 @@
 @import './vars';
 
 .page {
-    width: 100dvw;
-    height: calc(100dvh - $menu-height);
+    min-width: 100vw;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    scroll-snap-align: start;
 }

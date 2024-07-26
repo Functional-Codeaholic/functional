@@ -35,34 +35,92 @@ const Header = () => {
         }
     }, [])
 
-    return (
-        <header className="header">
-            <nav>
-                <div className="hamburger" onClick={handleClick}>
-                    {(menuOpen === false)
-                        ? <Hamburger />
-                        : <HamburgerOpen /> 
-                    }
-                </div>
-            </nav>
+    useEffect(() => {
+        const setVhProperty = () => {
+            const vh = window.innerHeight * 0.01
+            document.documentElement.style.setProperty('--vh', `${vh}px`)
+        }
 
-            <div className="logo">
-                <Link href='/'>
-                    <Image
-                        src="/images/logoHuge.png"
-                        alt="Logo for Functional Codeaholic - Web Development by Brian Quinney"
-                        id = "logo"
-                        className='logo'
-                        width={100}
-                        height={100}
-                        sizes={`(min-width: ${hd4kMin}px) 256px, (min-width: ${hd1080Min}px) 200px, (min-width: ${tabletMin}px) 150px, (min-width: ${mobileMin}px) 100px, 100px`}
-                    />
-                </Link>
+        setVhProperty()
+
+        window.addEventListener('resize', setVhProperty)
+
+        return () => {
+            window.removeEventListener('resize', setVhProperty)
+        }
+    }, [])
+
+    useEffect(() => {
+        const setVwProperty = () => {
+            const vw = window.innerWidth * 0.01
+            document.documentElement.style.setProperty('--vw', `${vw}px`)
+        }
+
+        setVwProperty()
+
+        window.addEventListener('resize', setVwProperty)
+
+        return () => {
+            window.removeEventListener('resize', setVwProperty)
+        }
+    }, [])
+
+    return (
+        <>
+            <div className="top-box">
+                <header className="header">
+                    <nav>
+                        <div className="hamburger" onClick={handleClick}>
+                            {(menuOpen === false)
+                                ? <Hamburger />
+                                : <HamburgerOpen /> 
+                            }
+                        </div>
+                    </nav>
+
+                    <div className="logoDiv">
+                        <Link href='/'>
+                            <picture>
+                                <source
+                                    srcSet="/images/logoHuge.webp"
+                                    media={"(min-width: " + hd4kMin + "px)"}
+                                />
+                                <source
+                                    srcSet="/images/logoHuge.webp"
+                                    media={"(min-width: " + hd1080Min + "px)"}
+                                />
+                                <source
+                                    srcSet="/images/mobile-logoHuge.webp"
+                                    media={"(min-width: " + tabletMin + "px)"}
+                                />
+                                <source
+                                    srcSet="/images/mobile-logoHuge.webp"
+                                    media={"(min-width: " + mobileMin + "px)"}
+                                />
+                                <img
+                                    srcSet="/images/mobile-logoHuge.webp"
+                                    alt="Logo for Functional Codeaholic - Web Development by Brian Quinney"
+                                    id="logo" 
+                                    className="logo"
+                                />
+                            </picture>
+                            {/* <Image
+                                src="/images/logoHuge.webp"
+                                alt="Logo for Functional Codeaholic - Web Development by Brian Quinney"
+                                id = "logo"
+                                className='logo'
+                                width={100}
+                                height={100}
+                                sizes={`(min-width: ${hd4kMin}px) 256px, (min-width: ${hd1080Min}px) 200px, (min-width: ${tabletMin}px) 150px, (min-width: ${mobileMin}px) 100px, 100px`}
+                            /> */}
+                        </Link>
+                    </div>
+                    <div className="contact">
+                        <Link href="#contact"><Contact /></Link>
+                    </div>
+                </header>
             </div>
-            <div className="contact">
-                <Link href="#contact"><Contact /></Link>
-            </div>
-        </header>
+        </>
     );
 }
  
