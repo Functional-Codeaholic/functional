@@ -67,7 +67,7 @@
         .logoDiv {
             width: 20%;
             display: flex;
-            align-items: end;
+            align-items: flex-end;
             justify-content: center;
             padding-bottom: calc($menu-height * (1.5 / 9));
             position: relative;
@@ -87,7 +87,7 @@
             width: 40%;
             display: flex;
             align-items: center;
-            justify-content: end;
+            justify-content: flex-end;
     
             svg {
                 width: calc(0.9 * $menu-height);
