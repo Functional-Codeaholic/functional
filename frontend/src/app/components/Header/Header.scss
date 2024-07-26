@@ -70,13 +70,16 @@
             align-items: end;
             justify-content: center;
             padding-bottom: calc($menu-height * (1.5 / 9));
-
+            position: relative;
+            
             a {
-                filter: drop-shadow(0 0 2px #ffffff66);
-
                 #logo {
-                    width: 17dvw;
-                    backdrop-filter: blur(90px) saturate(2);
+                    height: calc($menu-height * 1.75);
+                    width: auto;
+                    aspect-ratio: 1 / 1;
+                    position: relative;
+                    bottom: .6dvh;
+                    // backdrop-filter: blur(3px);
                 }
             }
         }

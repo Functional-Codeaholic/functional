@@ -5,7 +5,6 @@ import Hamburger from './Hamburger'
 import HamburgerOpen from './HamburgerOpen'
 import Contact from './Contact'
 import { mobileMin, tabletMin, hd1080Min, hd4kMin } from '../../_vars.js'
-import Image from 'next/image';
 import Link from 'next/link';
 
 const Header = () => {
@@ -104,15 +103,6 @@ const Header = () => {
                                     className="logo"
                                 />
                             </picture>
-                            {/* <Image
-                                src="/images/logoHuge.webp"
-                                alt="Logo for Functional Codeaholic - Web Development by Brian Quinney"
-                                id = "logo"
-                                className='logo'
-                                width={100}
-                                height={100}
-                                sizes={`(min-width: ${hd4kMin}px) 256px, (min-width: ${hd1080Min}px) 200px, (min-width: ${tabletMin}px) 150px, (min-width: ${mobileMin}px) 100px, 100px`}
-                            /> */}
                         </Link>
                     </div>
                     <div className="contact">
