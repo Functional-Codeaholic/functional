@@ -10,8 +10,8 @@ import Link from "next/link"
 const Projects = () => {
   useEffect(() => {
     const setScreenshotHeight = () => {
-      const image = document.querySelector('.screenshot-img')
-      const screenshot = document.querySelector('.screenshot')
+      const image = document.querySelector('.screenshot-img') as HTMLImageElement
+      const screenshot = document.querySelector('.screenshot') as HTMLElement
       if (image && screenshot) {
         screenshot.style.height = `${image.offsetHeight}px`
       }
