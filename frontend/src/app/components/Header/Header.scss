@@ -30,6 +30,8 @@
             justify-content: baseline;
     
             svg {
+                min-width: 50px;
+                min-height: 50px;
                 width: calc($menu-height * (6 / 9));
                 height: calc($menu-height * (6 / 9));
                 stroke-width: 0;
