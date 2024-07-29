@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import './page.scss'
-import Arrow from '../components/Arrow/Arrow'
+import DownArrow from '../components/DownArrow/DownArrow'
 
 const Skills = () => {
 
@@ -20,7 +20,7 @@ const Skills = () => {
           <h3>Developing&nbsp;</h3>
           <h2>Responsive, Dynamic, Elegant</h2>
           <h3>Websites & Web Apps</h3>
-          <Arrow />
+          <DownArrow />
         </div>
       </>
     );

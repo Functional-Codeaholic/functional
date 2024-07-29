@@ -3,7 +3,7 @@
 import React, { useEffect } from "react"
 import Image from "next/image"
 import './page.scss'
-import Arrow from '../components/Arrow/Arrow'
+import DownArrow from '../components/DownArrow/DownArrow'
 import { hd1080Min, hd4kMin, mobileMin, tabletMin } from "../_vars"
 import Link from "next/link"
 
@@ -81,7 +81,7 @@ const Projects = () => {
             <Link href="allProjects">See More...</Link>
           </div>
         </div>
-        <Arrow />
+        <DownArrow />
       </div>
     </>
   );
