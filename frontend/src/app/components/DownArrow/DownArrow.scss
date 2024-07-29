@@ -6,7 +6,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: absolute;
+    top: 73dvh;
 
     .shadow {
         background-repeat: no-repeat;
