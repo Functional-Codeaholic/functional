@@ -1,6 +1,6 @@
 import copy
 from . import models
-from .serializers import PagesSerializer
+from .serializers import PagesSerializer, ProjectsSerializer
 from rest_framework.permissions import DjangoModelPermissions
 from rest_framework import viewsets
 # Create your views here.
@@ -17,3 +17,10 @@ class PagesViewSet(viewsets.ModelViewSet):
     
     def get_queryset(self):
         return models.Pages.objects.all()
+        
+class ProjectsViewSet(viewsets.ModelViewSet):
+    serializer_class = ProjectsSerializer
+    permission_classes = (CustomDjangoModelPermissions,)
+    
+    def get_queryset(self):
+        return models.Projects.objects.all()

@@ -7,3 +7,15 @@ class Pages(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Projects(models.Model):
+    project_name = models.CharField(max_length=255, unique=True, null=False)
+    client_name = models.CharField(max_length=60, null=False)
+    client_description = models.TextField(max_length=255, null=False)
+    project_goal = models.TextField(max_length=255)
+    experience = models.TextField(max_length=510)
+    outcome = models.TextField(max_length=255)
+    screenshot = models.ImageField()
+    
+    def __str__(self):
+        return self.project_name
