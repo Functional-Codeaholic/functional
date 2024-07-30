@@ -4,6 +4,7 @@ import Image from "next/image"
 import './DownArrow.scss'
 import { useHash } from '../useHash'
 import { scrollToSection } from '../utils'
+import next from 'next'
 
 interface DownArrowProps {
     nextPage: string;
@@ -11,20 +12,18 @@ interface DownArrowProps {
 
 const DownArrow: FC<DownArrowProps> = ({ nextPage }) => {
     const hash = useHash()
-    const page = nextPage;
 
     useEffect(() => {
         const section = hash.replace('#', "");
         if (section) scrollToSection(section)
     }, [hash])
 
-    console.log(nextPage)
 
     return (
         <>
             <div className="arrow">
                 <div className="shadow"></div>
-                <button onClick={() => scrollToSection(page)}>
+                <button onClick={() => scrollToSection(nextPage)}>
                     <Image 
                         src='/images/arrow-down.webp'
                         alt="Arrow indicating to user to scroll down for more content"
