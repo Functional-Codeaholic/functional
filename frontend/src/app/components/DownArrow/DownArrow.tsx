@@ -11,20 +11,17 @@ interface DownArrowProps {
 
 const DownArrow: FC<DownArrowProps> = ({ nextPage }) => {
     const hash = useHash()
-    const page = nextPage;
 
     useEffect(() => {
         const section = hash.replace('#', "");
         if (section) scrollToSection(section)
     }, [hash])
 
-    console.log(nextPage)
-
     return (
         <>
             <div className="arrow">
                 <div className="shadow"></div>
-                <button onClick={() => scrollToSection(page)}>
+                <button onClick={() => scrollToSection(nextPage)}>
                     <Image 
                         src='/images/arrow-down.webp'
                         alt="Arrow indicating to user to scroll down for more content"
@@ -33,7 +30,6 @@ const DownArrow: FC<DownArrowProps> = ({ nextPage }) => {
                         width={75}
                         height={75}  
                     />
-                    {/* {nextPage} */}
                 </button>
             </div>
         </>
