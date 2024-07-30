@@ -78,7 +78,7 @@ const Projects = () => {
             </div>
           </div>
           <div className="more">
-            <Link href="allProjects">See More...</Link>
+            <Link href="CaseStudies">See More...</Link>
           </div>
         </div>
         <DownArrow nextPage='skills' />
