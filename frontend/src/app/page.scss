@@ -15,6 +15,7 @@
         color: $light-blue;
         margin: 0;
         text-shadow: 0.5px 0.5px 0 $med-blue;
+        z-index: 100000;
     }
 
     h3 {
@@ -36,15 +37,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        // background-repeat: no-repeat;
-        // background-image: url('/images/me.webp');
-        // background-size: 70vw;
-        // background-position: 50%;
-        // background-attachment: fixed;
-        // padding: 20px;
-        // margin: -20px;
-        // filter: drop-shadow(0 0 3px #ffffff66);
 
         .shadow {
             background-repeat: no-repeat;

@@ -81,7 +81,7 @@ const Projects = () => {
             <Link href="allProjects">See More...</Link>
           </div>
         </div>
-        <DownArrow />
+        <DownArrow nextPage='skills' />
       </div>
     </>
   );

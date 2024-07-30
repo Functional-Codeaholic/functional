@@ -1,38 +1,12 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import './Header.scss'
-import Hamburger from './Hamburger'
-import HamburgerOpen from './HamburgerOpen'
 import Contact from './Contact'
 import { mobileMin, tabletMin, hd1080Min, hd4kMin } from '../../_vars.js'
 import Link from 'next/link';
+import Menu from './Menu/Menu'
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false)
-
-    const handleClick = () => {
-        setMenuOpen(!menuOpen)
-    }
-
-    useEffect(() => {
-        const contactLink = document.querySelector('.header a')
-
-        const provideHapticFeedback = () => {
-            if (navigator.vibrate) {
-                navigator.vibrate(200)
-            }
-        }
-
-        if (contactLink) {
-            contactLink.addEventListener('click', provideHapticFeedback)
-        }
-
-        return () => {
-            if (contactLink) {
-                contactLink.removeEventListener('click', provideHapticFeedback)
-            }
-        }
-    }, [])
 
     useEffect(() => {
         const setVhProperty = () => {
@@ -69,12 +43,7 @@ const Header = () => {
             <div className="top-box">
                 <header className="header">
                     <nav>
-                        <div className="hamburger" onClick={handleClick}>
-                            {(menuOpen === false)
-                                ? <Hamburger />
-                                : <HamburgerOpen /> 
-                            }
-                        </div>
+                        <Menu />
                     </nav>
 
                     <div className="logoDiv">

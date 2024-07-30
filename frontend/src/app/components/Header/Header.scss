@@ -3,9 +3,9 @@
 .top-box {
     position: fixed;
     width: 100vw;
-    height: 100dvh;
+    height: $menu-height;
     left: 0;
-    top: 0;
+    bottom: 0;
     z-index: 1000;
 
     header {
@@ -37,32 +37,6 @@
                 stroke-width: 0;
                 fill: $light-blue;
                 padding: calc($menu-height * (1.5 / 9))
-            }
-    
-            #hamburger,
-            #hamburger-open {
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-    
-            #hamburger-open {
-                animation: rotate45 .25s ease-in-out forwards;
-            }
-    
-            @keyframes rotate45 {
-                from {
-                    transform: rotate(0deg);
-                    width: calc($menu-height * (4 / 9));
-                    height: calc($menu-height * (4 / 9));
-                    padding: calc($menu-height * (2.5 / 9));
-                }
-                to {
-                    transform: rotate(45deg);
-                    width: calc($menu-height * (6 / 9));
-                    height: calc($menu-height * (6 / 9));
-                    padding: calc($menu-height * (1.5 / 9));
-                }
             }
         }
     

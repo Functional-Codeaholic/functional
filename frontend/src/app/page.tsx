@@ -34,7 +34,7 @@ export default function Home() {
         <h3>Developing&nbsp;</h3>
         <h2>Responsive, Dynamic, Elegant</h2>
         <h3>Websites & Web Apps</h3>
-        <DownArrow />
+        <DownArrow nextPage='portfolio' />
       </div>
       <Projects />
       <Skills />
