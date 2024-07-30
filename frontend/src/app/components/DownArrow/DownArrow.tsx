@@ -18,7 +18,6 @@ const DownArrow: FC<DownArrowProps> = ({ nextPage }) => {
         if (section) scrollToSection(section)
     }, [hash])
 
-
     return (
         <>
             <div className="arrow">
@@ -32,7 +31,6 @@ const DownArrow: FC<DownArrowProps> = ({ nextPage }) => {
                         width={75}
                         height={75}  
                     />
-                    {/* {nextPage} */}
                 </button>
             </div>
         </>
