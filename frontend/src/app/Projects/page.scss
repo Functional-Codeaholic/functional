@@ -95,7 +95,7 @@
 
             &:nth-child(even) {
                 .screenshot-img {
-                    padding-left: calc(96dvw - (100dvw / $gold-ratio));
+                    left: calc(96dvw - (100dvw / $gold-ratio));
                 }
 
                 .popout {
