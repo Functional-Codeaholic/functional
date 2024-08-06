@@ -14,32 +14,32 @@ interface ProjectData {
   project_url: string;
 }
 
-export default async function Projects() {
-  async function getProjects(): Promise<ProjectData[]> {
-    "use server"
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        }
-      )
+async function getProjects(): Promise<ProjectData[]> {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        cache: 'default'
+      }
+    )
 
-      if (!res.ok) {
-        console.error(`RES FAILED - STATUS: ${res.status}, STATUS TEXT: ${res.statusText}`)
-        return []
+    if (!res.ok) {
+      console.error(`RES FAILED - STATUS: ${res.status}, STATUS TEXT: ${res.statusText}`)
+      return []
       }
 
-      const project: ProjectData[] = await res.json()
-      return project
-    } catch (error) {
+    const projects: ProjectData[] = await res.json()
+    return projects
+  } catch (error) {
       console.error(`Fetch Error: ${error}`)
       return []
     }
-  }
+}
 
+export default async function Projects() {
   const projects = await getProjects();
 
   if (projects.length === 0) {
@@ -47,9 +47,5 @@ export default async function Projects() {
     notFound()
   }
 
-  return (
-    <>
-      <ProjectsContent projects={projects} />
-    </>
-  );
+  return <ProjectsContent projects={projects} />
 }
