@@ -44,7 +44,7 @@ export default async function Projects() {
 
   if (projects.length === 0) {
     console.error('PAGE FAILED')
-    notFound()
+    return <div>No Projects Found</div>
   }
 
   return <ProjectsContent projects={projects} />
