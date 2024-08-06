@@ -1,90 +1,55 @@
-"use client"
+import { notFound } from "next/navigation";
+import React from "react"
+import ProjectsContent from "./PageContent";
 
-import React, { useEffect } from "react"
-import Image from "next/image"
-import './page.scss'
-import DownArrow from '../components/DownArrow/DownArrow'
-import { hd1080Min, hd4kMin, mobileMin, tabletMin } from "../_vars"
-import Link from "next/link"
+interface ProjectData {
+  id: number;
+  project_name: string;
+  client_name: string;
+  client_description: string;
+  project_goal: string;
+  experience: string;
+  outcome: string;
+  screenshot: string;
+  project_url: string;
+}
 
-const Projects = () => {
-  useEffect(() => {
-    const setScreenshotHeight = () => {
-      const image = document.querySelector('.screenshot-img') as HTMLImageElement
-      const screenshot = document.querySelector('.screenshot') as HTMLElement
-      if (image && screenshot) {
-        screenshot.style.height = `${image.offsetHeight}px`
+export default async function Projects() {
+  async function getProjects(): Promise<ProjectData[]> {
+    "use server"
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        }
+      )
+
+      if (!res.ok) {
+        console.error(`RES FAILED - STATUS: ${res.status}, STATUS TEXT: ${res.statusText}`)
+        return []
       }
+
+      const project: ProjectData[] = await res.json()
+      return project
+    } catch (error) {
+      console.error(`Fetch Error: ${error}`)
+      return []
     }
+  }
 
-    window.addEventListener('load', setScreenshotHeight)
-    window.addEventListener('resize', setScreenshotHeight)
-    setScreenshotHeight()
+  const projects = await getProjects();
 
-    return () => {
+  if (projects.length === 0) {
+    console.error('PAGE FAILED')
+    notFound()
+  }
 
-      window.removeEventListener('load', setScreenshotHeight)
-      window.removeEventListener('resize', setScreenshotHeight)
-    }
-  }, [])
   return (
     <>
-      <div className="page" id="projects">
-        <h1>Recent Projects</h1>
-        <div className="screenshots">
-          <div className="screenshot">
-            <Image 
-              src="/images/projects/bald-eagle.webp"
-              alt="Screenshot of website built for Bald Eagle Construction"
-              id = "bald-eagle"
-              className='screenshot-img'
-              width={600}
-              height={294}
-              sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
-            />
-
-            <div className="popout">
-              <h3>Bald Eagle Construction</h3>
-            </div>
-          </div>
-          <div className="screenshot">
-            <Image 
-              src="/images/projects/bald-eagle.webp"
-              alt="Screenshot of website built for Bald Eagle Construction"
-              id = "bald-eagle"
-              className='screenshot-img'
-              width={600}
-              height={294}
-              sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
-            />
-
-            <div className="popout">
-              <h3>Bald Eagle Construction</h3>
-            </div>
-          </div>
-          <div className="screenshot">
-            <Image 
-              src="/images/projects/bald-eagle.webp"
-              alt="Screenshot of website built for Bald Eagle Construction"
-              id = "bald-eagle"
-              className='screenshot-img'
-              width={600}
-              height={294}
-              sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
-            />
-
-            <div className="popout">
-              <h3>Bald Eagle Construction</h3>
-            </div>
-          </div>
-          <div className="more">
-            <Link href="CaseStudies">See More...</Link>
-          </div>
-        </div>
-        <DownArrow nextPage='skills' />
-      </div>
+      <ProjectsContent projects={projects} />
     </>
   );
 }
- 
-export default Projects;

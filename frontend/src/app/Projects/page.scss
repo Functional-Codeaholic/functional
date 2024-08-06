@@ -48,13 +48,17 @@
         align-items: center;
 
         .screenshot {
-            display: flex;
-            justify-content: baseline;
+            display: none;
+            justify-content: flex-start;
             align-items: center;
             flex-direction: row;
             position: relative;
             width: 96dvw;
             margin: 2rem 0 0 0;
+
+            &:nth-child(-n+4) {
+                display: flex;
+            }
 
             .screenshot-img {
                 width: calc(100dvw / $gold-ratio);
@@ -67,23 +71,56 @@
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                width: 96dvw;
-                // aspect-ratio: 229.183 / 294;
+                width: 92dvw;
                 height: 100%;
                 background: rgba($med-red, 0.4);
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 z-index: 5;
+
 
                 h3 {
                     color: white;
-                    width: calc(96dvw - (100dvw / $gold-ratio));
+                    width: calc(92dvw - (100dvw / $gold-ratio));
                     opacity: 1;
                     position: absolute;
-                    top: 0;
-                    right: 0;
+                    top: 0.5rem;
                     text-align: center;
+                    max-width: 12ch;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                p {
+                    color: white;
+                    width: calc(88dvw - (100dvw / $gold-ratio));
+                    opacity: 1;
+                    position: absolute;
+                    top: 2.5rem;
+                    text-align: start;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    line-clamp: 3;
+                    overflow: hidden;
+                    max-height: 4.5rem;
+                    max-width: 15ch;
+                    text-overflow: ellipsis;
+                }
+
+                span {
+                    width: calc(88dvw - (100dvw / $gold-ratio));
+                    opacity: 1;
+                    position: absolute;
+                    text-align: center;
+                    bottom: 0.5rem;
+                    max-width: 10ch;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    a {
+                        color: white;
+                    }
                 }
             }
 
@@ -91,23 +128,41 @@
                 .screenshot-img {
                     left: 0;
                 }
+
+                .popout {
+                    h3 {
+                        right: 0;
+                    }
+                    p {
+                        right: 2dvw;
+                    }
+                    span {
+                        right: calc(((88dvw - (100dvw / $gold-ratio)) - 10ch) / 2);
+                    }
+                }
             }
 
             &:nth-child(even) {
                 .screenshot-img {
-                    left: calc(96dvw - (100dvw / $gold-ratio));
+                    left: calc(92dvw - (100dvw / $gold-ratio));
                 }
 
                 .popout {
                     h3 {
                         left: 0;
                     }
+                    p {
+                        left: 2dvw;
+                    }
+                    span {
+                        left: calc(((88dvw - (100dvw / $gold-ratio)) - 10ch) / 2);
+                    }
                 }
             }
         }
 
         .more {
-            width: 100%;
+            width: 92dvw;
             text-align: right;
             padding: 1rem 0 0 0;
             margin: 0 2rem 0 0;

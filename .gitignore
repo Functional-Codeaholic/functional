@@ -1,24 +1,8 @@
-# Virtual environment
-venv/
-
-# Python
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-*.env 
-
-# Django
-*.log
-*.pot
-*.py[cod]
-*.sqlite3
-db.sqlite3
-media/
-staticfiles/
-*.pyc
-*.env
-backend/*.env
+# Don't include anything from backend
+brianquinneydev/*
+*/brianquinneydev/*
+brianquinneydev/
+*/brianquinneydev/
 
 # Node.js
 frontend/node_modules/
