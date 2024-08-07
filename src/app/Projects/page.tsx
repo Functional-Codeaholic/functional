@@ -14,6 +14,7 @@ interface ProjectData {
 }
 
 async function getProjects(): Promise<ProjectData[]> {
+  console.log(process.env.NEXT_PUBLIC_API_URL)
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
