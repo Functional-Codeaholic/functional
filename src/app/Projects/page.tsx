@@ -43,7 +43,12 @@ export default async function Projects() {
 
   if (projects.length === 0) {
     console.error('PAGE FAILED')
-    notFound()
+    return (
+      <div className="page" id="projects">
+        <h1>Recent Projects</h1>
+        <div>None to show right now</div>
+      </div>
+    )
   }
 
   return (
