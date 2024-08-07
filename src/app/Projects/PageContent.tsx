@@ -21,9 +21,11 @@ interface ProjectData {
 
 interface ProjectContentProps {
   projects: ProjectData[];
+  resStatus: number;
+  resHeaders: Headers;
 }
 
-const ProjectsContent = ({ projects }: ProjectContentProps) => {
+const ProjectsContent = ({ projects, resStatus, resHeaders }: ProjectContentProps) => {
 
   useEffect(() => {
     const setScreenshotHeight = () => {
@@ -47,6 +49,8 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
   }, [])
 
   console.log(`PUBLIC API::::::::::: ${process.env.NEXT_PUBLIC_API_URL}`)
+  console.log(`RES STATUS::::::::::: ${resStatus}`)
+  console.log(`RES HEADERS::::::::::: ${resHeaders}`)
 
   return (
     <>

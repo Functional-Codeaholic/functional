@@ -13,7 +13,13 @@ interface ProjectData {
   project_url: string;
 }
 
-async function getProjects(): Promise<ProjectData[]> {
+interface GetProjectsResult {
+  projects: ProjectData[];
+  resStatus: number;
+  resHeaders: Headers;
+}
+
+async function getProjects(): Promise<GetProjectsResult> {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
@@ -24,26 +30,37 @@ async function getProjects(): Promise<ProjectData[]> {
       }
     )
 
-    console.log(`Res Status: ${res.status}`)
-    console.log(`Res Headers: ${res.headers}`)
+    const resStatus = res.status
+    const resHeaders = res.headers
 
     if (!res.ok) {
       const text = await res.text();
       console.error(`fetch failed with status: ${res.status}, and text: ${text}`)
-      return []
+      return {
+        projects: [],
+        resStatus,
+        resHeaders
+      }
     }
 
-    const project: ProjectData[] = await res.json()
-    console.log(`Fetched Projects: ${project}`)
-    return project
+    const projects: ProjectData[] = await res.json()
+    return {
+      projects,
+      resStatus,
+      resHeaders
+    }
   } catch (error) {
     console.error(`Fetch Error: ${error}`)
-    return []
+    return {
+      projects: [],
+      resStatus: 500,
+      resHeaders: new Headers()
+    }
   }
 }
 
 export default async function Projects() {
-  const projects = await getProjects();
+  const { projects, resStatus, resHeaders } = await getProjects();
 
   // if (projects.length === 0) {
   //   console.error('PAGE FAILED')
@@ -57,7 +74,11 @@ export default async function Projects() {
 
   return (
     <>
-      <ProjectsContent projects={projects} />
+      <ProjectsContent
+        projects={projects}
+        resStatus={resStatus}
+        resHeaders={resHeaders}
+      />
     </>
   );
 }
