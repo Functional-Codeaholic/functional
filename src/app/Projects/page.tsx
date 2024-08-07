@@ -55,8 +55,7 @@ export default async function Projects() {
   //   )
   // }
 
-  console.log(process.env.NEXT_PUBLIC_API_URL)
-  console.log("test")
+  console.log(`PUBLIC API::::::::::: ${process.env.NEXT_PUBLIC_API_URL}`)
 
   return (
     <>
