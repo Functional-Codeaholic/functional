@@ -25,13 +25,11 @@ async function getProjects(): Promise<ProjectData[]> {
     )
 
     if (!res.ok) {
-      const text = await res.text();
-      console.error(`fetch failed with status: ${res.status}, and text: ${text}`)
-      return []
+      throw new Error(`HTTP error! Status: ${res.status}`)
     }
 
     const project: ProjectData[] = await res.json()
-    return project
+    console.log(project)
   } catch (error) {
     console.error(`Fetch Error: ${error}`)
     return []
