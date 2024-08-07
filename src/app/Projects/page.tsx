@@ -31,6 +31,7 @@ async function getProjects(): Promise<ProjectData[]> {
     }
 
     const project: ProjectData[] = await res.json()
+    console.log(`PROJECT VARIABLE -- ${project}`)
     return project
   } catch (error) {
     console.error(`Fetch Error: ${error}`)
