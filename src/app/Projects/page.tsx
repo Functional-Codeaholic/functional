@@ -25,6 +25,9 @@ async function getProjects(): Promise<ProjectData[]> {
       }
     )
 
+    console.log(`Res Status: ${res.status}`)
+    console.log(`Res Headers: ${res.headers}`)
+
     if (!res.ok) {
       console.error(`RES FAILED - STATUS: ${res.status}, STATUS TEXT: ${res.statusText}`)
       return []
@@ -35,7 +38,7 @@ async function getProjects(): Promise<ProjectData[]> {
     return project
   } catch (error) {
     console.error(`Fetch Error: ${error}`)
-    throw error;
+    return []
   }
 }
 
