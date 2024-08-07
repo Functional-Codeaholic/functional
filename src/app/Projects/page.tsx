@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import ProjectsContent from "./PageContent";
 
 interface ProjectData {
@@ -38,17 +38,17 @@ async function getProjects(): Promise<ProjectData[]> {
 }
 
 export default async function Projects() {
-  const projects = await getProjects();
+  const [projects, setProjects] = useState<ProjectData[]>([])
 
-  // if (projects.length === 0) {
-  //   console.error('PAGE FAILED')
-  //   return (
-  //     <div className="page" id="projects">
-  //       <h1>Recent Projects</h1>
-  //       <div>None to show right now</div>
-  //     </div>
-  //   )
-  // }
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projects = await getProjects()
+      setProjects(projects)
+    }
+
+    fetchProjects()
+    
+  }, [])
 
   return (
     <>
