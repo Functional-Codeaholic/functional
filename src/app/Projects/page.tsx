@@ -35,7 +35,7 @@ async function getProjects(): Promise<ProjectData[]> {
     return project
   } catch (error) {
     console.error(`Fetch Error: ${error}`)
-    return []
+    throw error;
   }
 }
 
