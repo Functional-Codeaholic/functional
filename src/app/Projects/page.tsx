@@ -50,12 +50,12 @@ async function getProjects(): Promise<GetProjectsResult> {
       resHeaders
     }
   } catch (error) {
-    console.error(`Fetch Error: ${error}`)
-    return {
+    const projects = error
+    return ({
       projects: [],
       resStatus: 500,
       resHeaders: new Headers()
-    }
+    })
   }
 }
 
