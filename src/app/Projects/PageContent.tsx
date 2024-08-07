@@ -21,11 +21,9 @@ interface ProjectData {
 
 interface ProjectContentProps {
   projects: ProjectData[];
-  resStatus: number;
-  resHeaders: Headers;
 }
 
-const ProjectsContent = ({ projects, resStatus, resHeaders }: ProjectContentProps) => {
+const ProjectsContent = ({ projects }: ProjectContentProps) => {
 
   useEffect(() => {
     const setScreenshotHeight = () => {
@@ -47,10 +45,6 @@ const ProjectsContent = ({ projects, resStatus, resHeaders }: ProjectContentProp
       window.removeEventListener('resize', setScreenshotHeight)
     }
   }, [])
-
-  console.log(`PUBLIC API::::::::::: ${process.env.NEXT_PUBLIC_API_URL}`)
-  console.log(`RES STATUS::::::::::: ${resStatus}`)
-  console.log(`RES HEADERS::::::::::: ${resHeaders}`)
 
   return (
     <>

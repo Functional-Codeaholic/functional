@@ -13,13 +13,7 @@ interface ProjectData {
   project_url: string;
 }
 
-interface GetProjectsResult {
-  projects: ProjectData[];
-  resStatus: number;
-  resHeaders: Headers;
-}
-
-async function getProjects(): Promise<GetProjectsResult> {
+async function getProjects(): Promise<ProjectData[]> {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
@@ -30,37 +24,22 @@ async function getProjects(): Promise<GetProjectsResult> {
       }
     )
 
-    const resStatus = res.status
-    const resHeaders = res.headers
-
     if (!res.ok) {
       const text = await res.text();
       console.error(`fetch failed with status: ${res.status}, and text: ${text}`)
-      return {
-        projects: [],
-        resStatus,
-        resHeaders
-      }
+      return []
     }
 
-    const projects: ProjectData[] = await res.json()
-    return {
-      projects,
-      resStatus,
-      resHeaders
-    }
+    const project: ProjectData[] = await res.json()
+    return project
   } catch (error) {
-    const projects = error
-    return ({
-      projects: [],
-      resStatus: 500,
-      resHeaders: new Headers()
-    })
+    console.error(`Fetch Error: ${error}`)
+    return []
   }
 }
 
 export default async function Projects() {
-  const { projects, resStatus, resHeaders } = await getProjects();
+  const projects = await getProjects();
 
   // if (projects.length === 0) {
   //   console.error('PAGE FAILED')
@@ -74,11 +53,7 @@ export default async function Projects() {
 
   return (
     <>
-      <ProjectsContent
-        projects={projects}
-        resStatus={resStatus}
-        resHeaders={resHeaders}
-      />
+      <ProjectsContent projects={projects} />
     </>
   );
 }
