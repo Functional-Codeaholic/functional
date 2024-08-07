@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import React from "react"
 import ProjectsContent from "./PageContent";
 
@@ -29,12 +28,13 @@ async function getProjects(): Promise<ProjectData[]> {
     console.log(`Res Headers: ${res.headers}`)
 
     if (!res.ok) {
-      console.error(`RES FAILED - STATUS: ${res.status}, STATUS TEXT: ${res.statusText}`)
+      const text = await res.text();
+      console.error(`fetch failed with status: ${res.status}, and text: ${text}`)
       return []
     }
 
     const project: ProjectData[] = await res.json()
-    console.log(`PROJECT VARIABLE -- ${project}`)
+    console.log(`Fetched Projects: ${project}`)
     return project
   } catch (error) {
     console.error(`Fetch Error: ${error}`)
