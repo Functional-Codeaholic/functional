@@ -14,7 +14,6 @@ interface ProjectData {
 }
 
 async function getProjects(): Promise<ProjectData[]> {
-  console.log(process.env.NEXT_PUBLIC_API_URL)
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
@@ -46,16 +45,18 @@ async function getProjects(): Promise<ProjectData[]> {
 export default async function Projects() {
   const projects = await getProjects();
 
-  if (projects.length === 0) {
-    console.error('PAGE FAILED')
-    return (
-      <div className="page" id="projects">
-        <h1>Recent Projects</h1>
-        <div>None to show right now</div>
-      </div>
-    )
-  }
+  // if (projects.length === 0) {
+  //   console.error('PAGE FAILED')
+  //   return (
+  //     <div className="page" id="projects">
+  //       <h1>Recent Projects</h1>
+  //       <div>None to show right now</div>
+  //     </div>
+  //   )
+  // }
 
+  console.log(process.env.NEXT_PUBLIC_API_URL)
+  
   return (
     <>
       <ProjectsContent projects={projects} />
