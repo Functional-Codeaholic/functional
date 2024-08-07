@@ -1,0 +1,75 @@
+@import './vars';
+
+:root {
+  --vh: 1vh;
+  --vw: 1vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Functional_Sans;
+  src:  url('/fonts/Leoscar-Sans-Serif.otf') format('opentype'),
+        url('/fonts/Leoscar-Sans-Serif.woff') format('woff'),
+        url('/fonts/Leoscar-Sans-Serif.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Functional_Serif;
+  src:  url('/fonts/Leoscar-Serif.otf') format('opentype'),
+        url('/fonts/Leoscar-Serif.woff') format('woff'),
+        url('/fonts/Leoscar-Serif.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: $fontFamily;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: $fontFamily;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: $fontSizeH1;
+}
+h2 {
+  font-size: $fontSizeH2;
+}
+h3 {
+  font-size: $fontSizeH3;
+}
+h4 {
+  font-size: $fontSizeH4;
+}
+h5 {
+  font-size: $fontSizeH5;
+}
+h6 {
+  font-size: $fontSizeH6;
+}
+
+body {
+  margin: 0;
+}

@@ -1,0 +1,77 @@
+@import '../../vars';
+
+.top-box {
+    position: fixed;
+    width: 100vw;
+    height: $menu-height;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+
+    header {
+        background-color: $med-blue;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: $menu-height;
+        position: absolute;
+        bottom: 0;
+    
+        a {
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    
+        nav {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: baseline;
+    
+            svg {
+                min-width: 50px;
+                min-height: 50px;
+                width: calc($menu-height * (6 / 9));
+                height: calc($menu-height * (6 / 9));
+                stroke-width: 0;
+                fill: $light-blue;
+                padding: calc($menu-height * (1.5 / 9))
+            }
+        }
+    
+        .logoDiv {
+            width: 20%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: calc($menu-height * (1.5 / 9));
+            position: relative;
+            
+            a {
+                #logo {
+                    height: calc($menu-height * 1.75);
+                    width: auto;
+                    aspect-ratio: 1 / 1;
+                    position: relative;
+                    bottom: .6dvh;
+                }
+            }
+        }
+    
+        .contact {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+    
+            svg {
+                width: calc(0.9 * $menu-height);
+                height: calc(0.9 * $menu-height);
+                stroke-width: 0;
+                fill: $light-blue;
+                padding-right: calc($menu-height * (1.5 / 9));
+            }
+        }
+    }
+}

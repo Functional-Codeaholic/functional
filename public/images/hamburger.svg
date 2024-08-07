@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 500 500"
+     aria-labelledby="contactTitle contactDesc">
+     <title id="contactTitle">Contact Functional Codeaholic</title>
+     <desc id="contactDesc">An image of an envelope, indicating a link to the contact page for Functional Codeaholic</desc>
+  <path id="Selection"
+    fill="none" stroke="black" stroke-width="1"
+    d="M 0.00,0.00
+      C 0.00,0.00 500.00,0.00 500.00,0.00
+        500.00,0.00 500.00,99.00 500.00,99.00
+        500.00,99.00 0.00,99.00 0.00,99.00
+        0.00,99.00 0.00,0.00 0.00,0.00 Z
+      M 0.00,199.00
+      C 0.00,199.00 500.00,199.00 500.00,199.00
+        500.00,199.00 500.00,299.00 500.00,299.00
+        500.00,299.00 0.00,299.00 0.00,299.00
+        0.00,299.00 0.00,199.00 0.00,199.00 Z
+      M 0.00,399.00
+      C 0.00,399.00 500.00,399.00 500.00,399.00
+        500.00,399.00 500.00,500.00 500.00,500.00
+        500.00,500.00 0.00,500.00 0.00,500.00
+        0.00,500.00 0.00,399.00 0.00,399.00 Z" 
+  />
+</svg>
