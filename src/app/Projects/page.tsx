@@ -13,7 +13,7 @@ interface ProjectData {
   project_url: string;
 }
 
-async function getProjects() {
+async function getProjects(): Promise<ProjectData[]> {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
@@ -28,8 +28,9 @@ async function getProjects() {
       throw new Error(`HTTP error! Status: ${res.status}`)
     }
 
-    const project: ProjectData[] = await res.json()
-    console.log(project)
+    const projects: ProjectData[] = await res.json()
+    console.log(projects)
+    return projects
   } catch (error) {
     console.error(`Fetch Error: ${error}`)
     return []
