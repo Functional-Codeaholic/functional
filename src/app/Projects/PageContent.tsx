@@ -46,6 +46,8 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
     }
   }, [])
 
+  console.log(`PUBLIC API::::::::::: ${process.env.NEXT_PUBLIC_API_URL}`)
+
   return (
     <>
       <div className="page" id="projects">

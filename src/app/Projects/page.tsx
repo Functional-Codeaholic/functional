@@ -55,8 +55,6 @@ export default async function Projects() {
   //   )
   // }
 
-  console.log(`PUBLIC API::::::::::: ${process.env.NEXT_PUBLIC_API_URL}`)
-
   return (
     <>
       <ProjectsContent projects={projects} />
