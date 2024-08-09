@@ -55,23 +55,42 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
             const imgID = project.project_name.toLowerCase().replace(/ /g, '-')
 
             return (
-              <div className="screenshot" key={project.id}>
+              <>
+                <div className="screenshot" key={project.id}>
                 <h3>{project.project_name}</h3>
-                <Image
-                  src={project.screenshot}
-                  alt={project.project_name}
-                  id={imgID}
-                  className='screenshot-img'
-                  width={600}
-                  height={294}
-                  sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
-                />
+                  <Image
+                    src={project.screenshot}
+                    alt={project.project_name}
+                    id={imgID}
+                    className='screenshot-img'
+                    width={600}
+                    height={294}
+                    sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
+                  />
 
-                <div className="popout" key={`popout-${project.id}`}>
-                  <p>{project.project_goal}</p>
-                  <span><Link href={`CaseStudies/${project.id}`}>Learn More About This Project</Link></span>
+                  <div className="popout" key={`popout-${project.id}`}>
+                    <p>{project.project_goal}</p>
+                    <span><Link href={`CaseStudies/${project.id}`}>Learn More About This Project</Link></span>
+                  </div>
                 </div>
-              </div>
+                <div className="screenshot" key={project.id}>
+                <h3>{project.project_name}</h3>
+                  <Image
+                    src={project.screenshot}
+                    alt={project.project_name}
+                    id={imgID}
+                    className='screenshot-img'
+                    width={600}
+                    height={294}
+                    sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
+                  />
+
+                  <div className="popout" key={`popout-${project.id}`}>
+                    <p>{project.project_goal}</p>
+                    <span><Link href={`CaseStudies/${project.id}`}>Learn More About This Project</Link></span>
+                  </div>
+                </div>
+              </>
             )
           })}
           <div className="more">

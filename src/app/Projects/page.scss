@@ -54,7 +54,8 @@
             flex-direction: row;
             position: relative;
             width: 96dvw;
-            margin: 2rem 0 0 0;
+            padding: 2rem 0 0 0;
+            margin: 0 0 2rem 0;
 
             &:nth-child(-n+4) {
                 display: flex;
@@ -65,12 +66,11 @@
                 width: calc(92dvw - (100dvw / $gold-ratio));
                 opacity: 1;
                 position: absolute;
-                top: 0.5rem;
-                text-align: center;
-                max-width: 12ch;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                text-align: left;
+                align-self: baseline;
+                width: 94dvw;  
+                padding-left: 1dvw;
+                top: 0.75rem;
             }
 
             .screenshot-img {
@@ -85,7 +85,7 @@
                 bottom: 0;
                 left: 0;
                 width: 92dvw;
-                height: 100%;
+                height: calc(100% - 2rem);
                 background: rgba($med-red, 0.4);
                 z-index: 5;
 
@@ -94,7 +94,7 @@
                     width: calc(88dvw - (100dvw / $gold-ratio));
                     opacity: 1;
                     position: absolute;
-                    top: 2.5rem;
+                    top: 0.5rem;
                     text-align: start;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
@@ -129,9 +129,6 @@
                 }
 
                 .popout {
-                    h3 {
-                        right: 0;
-                    }
                     p {
                         right: 2dvw;
                     }
@@ -147,9 +144,6 @@
                 }
 
                 .popout {
-                    h3 {
-                        left: 0;
-                    }
                     p {
                         left: 2dvw;
                     }
