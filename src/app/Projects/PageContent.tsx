@@ -75,6 +75,7 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
                     height={294}
                     sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
                   />
+                  <div className="beacon"></div>
 
                   <div className="popout" key={`popout-${project.id}`}>
                     <p>{project.project_goal}</p>
