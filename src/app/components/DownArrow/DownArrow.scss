@@ -1,13 +1,15 @@
 @import '../../vars';
 
 .arrow {
-    width: 100vw;
-    height: 10vh;
+    width: 10dvh;
+    height: 10dvh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 75dvh;
+    top: 63vh;
+    left: 50%;
+    transform: translateX((-50%));
 
     .shadow {
         background-repeat: no-repeat;
