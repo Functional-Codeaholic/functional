@@ -166,8 +166,8 @@
             }
 
             .screenshot-img {
-                width: calc(100dvw / $gold-ratio);
-                height: auto;
+                width: auto;
+                height: 13.5dvh;
                 position: relative;
                 z-index: 6;
             }

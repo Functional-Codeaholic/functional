@@ -46,27 +46,27 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
     }
   }
 
-  useEffect(() => {
-    // setScreenshotHeight sets the height of the screenshots relative to the display size
-    const setScreenshotHeight = () => {
-      const image = document.querySelector('.screenshot-img') as HTMLImageElement
-      const screenshot = document.querySelector('.screenshot') as HTMLElement
+  // useEffect(() => {
+  //   // setScreenshotHeight sets the height of the screenshots relative to the display size
+  //   const setScreenshotHeight = () => {
+  //     const image = document.querySelector('.screenshot-img') as HTMLImageElement
+  //     const screenshot = document.querySelector('.screenshot') as HTMLElement
 
-      if (image && screenshot) {
-        screenshot.style.height = `${image.offsetHeight}px`
-      }
-    }
+  //     if (image && screenshot) {
+  //       screenshot.style.height = `${image.offsetHeight}px`
+  //     }
+  //   }
 
-    window.addEventListener('load', setScreenshotHeight)
-    window.addEventListener('resize', setScreenshotHeight)
-    setScreenshotHeight()
+  //   window.addEventListener('load', setScreenshotHeight)
+  //   window.addEventListener('resize', setScreenshotHeight)
+  //   setScreenshotHeight()
 
-    return () => {
+  //   return () => {
 
-      window.removeEventListener('load', setScreenshotHeight)
-      window.removeEventListener('resize', setScreenshotHeight)
-    }
-  }, [])
+  //     window.removeEventListener('load', setScreenshotHeight)
+  //     window.removeEventListener('resize', setScreenshotHeight)
+  //   }
+  // }, [])
 
   return (
     <>
