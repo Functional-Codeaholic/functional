@@ -14,9 +14,10 @@ interface ProjectData {
 }
 
 async function getProjects(): Promise<ProjectData[]> {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`;
+
   try {
-    const res = await fetch(
-      `https://djangoapi.brianquinney.dev/core/projects/?format=json`, {
+    const res = await fetch(url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -39,10 +40,11 @@ async function getProjects(): Promise<ProjectData[]> {
 
 export default async function Projects() {
   const projects = await getProjects();
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`;
 
   return (
     <>
-      <ProjectsContent projects={projects} />
+      <ProjectsContent projects={projects} url={url} />
     </>
   );
 }

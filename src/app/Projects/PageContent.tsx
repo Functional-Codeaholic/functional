@@ -21,9 +21,13 @@ interface ProjectData {
 
 interface ProjectContentProps {
   projects: ProjectData[];
+  url: string;
 }
 
-const ProjectsContent = ({ projects }: ProjectContentProps) => {
+const ProjectsContent = ({ projects, url }: ProjectContentProps) => {
+
+  console.log(`URL: ${url}`)
+  console.log(`PROJECTS: ${projects}`)
 
   useEffect(() => {
     const setScreenshotHeight = () => {
