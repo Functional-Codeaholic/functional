@@ -16,7 +16,7 @@ interface ProjectData {
 async function getProjects(): Promise<ProjectData[]> {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`, {
+      `https://djangoapi.brianquinney.dev/core/projects/?format=json`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
