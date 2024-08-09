@@ -7,6 +7,7 @@ import DownArrow from '../components/DownArrow/DownArrow'
 import { hd1080Min, hd4kMin, mobileMin, tabletMin } from "../_vars"
 import Link from "next/link"
 
+// define types for data coming from page.tsx
 interface ProjectData {
   id: number;
   project_name: string;
@@ -24,24 +25,29 @@ interface ProjectContentProps {
 }
 
 const ProjectsContent = ({ projects }: ProjectContentProps) => {
+  // handleClick function makes screenshot div's show/hide the info about them
   const handleClick = (id: string) => {
     const allScreenshots = document.querySelectorAll('.screenshot')
     const clickedDiv = document.getElementById(id)
 
     if (clickedDiv?.classList.contains('active')) {
+      // if user clicks/taps the already active div, then replace 'active' class with 'inactive'
       clickedDiv?.classList.remove('active')
       clickedDiv?.classList.add('inactive')
     } else {
       allScreenshots.forEach((screenshot) => {
+        // remove 'active' class from all screenshot div's and add replace with 'inactive'
         screenshot.classList.remove('active')
         screenshot.classList.add('inactive')
       })
+      // replace 'inactive' class with 'active' on div that was clicked
       clickedDiv?.classList.remove('inactive')
       clickedDiv?.classList.add('active')
     }
   }
 
   useEffect(() => {
+    // setScreenshotHeight sets the height of the screenshots relative to the display size
     const setScreenshotHeight = () => {
       const image = document.querySelector('.screenshot-img') as HTMLImageElement
       const screenshot = document.querySelector('.screenshot') as HTMLElement
@@ -68,7 +74,9 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
         <h1>Recent Projects</h1>
         <div className="screenshots">
           {projects.map(project => {
+            // set ID for images according to name of project, spaces stripped and replaced with '-'
             const imgID = project.project_name.toLowerCase().replace(/ /g, '-')
+            // set ID for screenshot divs for click functionality
             const screenshotID = `screenshot${project.id}`
 
             return (
