@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import ProjectsContent from "./PageContent";
 
 interface ProjectData {
@@ -38,17 +38,7 @@ async function getProjects(): Promise<ProjectData[]> {
 }
 
 export default async function Projects() {
-  const [projects, setProjects] = useState<ProjectData[]>([])
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const projects = await getProjects()
-      setProjects(projects)
-    }
-
-    fetchProjects()
-    
-  }, [])
+  const projects = await getProjects();
 
   return (
     <>
