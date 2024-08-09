@@ -20,7 +20,6 @@ const Projects = () => {
   useEffect(() => {
     async function fetchProjects() {
       const url = `${process.env.NEXT_PUBLIC_API_URL}/core/projects/?format=json`
-      console.log(`FETCHING FROM URL: ${url}`)
 
       try {
         const res = await fetch(url, {
@@ -35,7 +34,6 @@ const Projects = () => {
         }
 
         const projects = await res.json()
-        console.log(`FETCHED PROJECTS: ${projects}`)
         setProjects(projects)
       } catch (error) {
         console.error(`FETCH ERROR: ${error}`)
