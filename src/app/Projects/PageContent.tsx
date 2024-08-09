@@ -28,12 +28,17 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
     const allScreenshots = document.querySelectorAll('.screenshot')
     const clickedDiv = document.getElementById(id)
 
-    allScreenshots.forEach((screenshot) => {
-      screenshot.classList.remove('active')
-      screenshot.classList.add('inactive')
-    })
-    clickedDiv?.classList.remove('inactive')
-    clickedDiv?.classList.add('active')
+    if (clickedDiv?.classList.contains('active')) {
+      clickedDiv?.classList.remove('active')
+      clickedDiv?.classList.add('inactive')
+    } else {
+      allScreenshots.forEach((screenshot) => {
+        screenshot.classList.remove('active')
+        screenshot.classList.add('inactive')
+      })
+      clickedDiv?.classList.remove('inactive')
+      clickedDiv?.classList.add('active')
+    }
   }
 
   useEffect(() => {
