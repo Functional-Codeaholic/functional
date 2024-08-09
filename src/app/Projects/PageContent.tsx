@@ -46,6 +46,26 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
     }
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      const beacons = document.querySelectorAll('.beacon');
+  
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        })
+      }, { threshold: 0.1 })
+  
+      beacons.forEach(beacon => observer.observe(beacon))
+  
+      return () => {
+        beacons.forEach(beacon => observer.unobserve(beacon))
+      }
+    }, 100)
+  }, [])
+
   return (
     <>
       <div className="page" id="projects">
