@@ -56,6 +56,7 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
 
             return (
               <div className="screenshot" key={project.id}>
+                <h3>{project.project_name}</h3>
                 <Image
                   src={project.screenshot}
                   alt={project.project_name}
@@ -67,7 +68,6 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
                 />
 
                 <div className="popout" key={`popout-${project.id}`}>
-                  <h3>{project.project_name}</h3>
                   <p>{project.project_goal}</p>
                   <span><Link href={`CaseStudies/${project.id}`}>Learn More About This Project</Link></span>
                 </div>
