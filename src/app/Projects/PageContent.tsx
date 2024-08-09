@@ -24,6 +24,17 @@ interface ProjectContentProps {
 }
 
 const ProjectsContent = ({ projects }: ProjectContentProps) => {
+  const handleClick = (id: string) => {
+    const allScreenshots = document.querySelectorAll('.screenshot')
+    const clickedDiv = document.getElementById(id)
+
+    allScreenshots.forEach((screenshot) => {
+      screenshot.classList.remove('active')
+      screenshot.classList.add('inactive')
+    })
+    clickedDiv?.classList.remove('inactive')
+    clickedDiv?.classList.add('active')
+  }
 
   useEffect(() => {
     const setScreenshotHeight = () => {
@@ -53,28 +64,17 @@ const ProjectsContent = ({ projects }: ProjectContentProps) => {
         <div className="screenshots">
           {projects.map(project => {
             const imgID = project.project_name.toLowerCase().replace(/ /g, '-')
+            const screenshotID = `screenshot${project.id}`
 
             return (
               <>
-                <div className="screenshot" key={project.id}>
-                <h3>{project.project_name}</h3>
-                  <Image
-                    src={project.screenshot}
-                    alt={project.project_name}
-                    id={imgID}
-                    className='screenshot-img'
-                    width={600}
-                    height={294}
-                    sizes={`(min-width: ${hd4kMin}px) 61.8%, (min-width: ${hd1080Min}px)  61.8%, (min-width: ${tabletMin}px)  61.8%, (min-width: ${mobileMin}px)  61.8%,  61.8%`}
-                  />
-
-                  <div className="popout" key={`popout-${project.id}`}>
-                    <p>{project.project_goal}</p>
-                    <span><Link href={`CaseStudies/${project.id}`}>Learn More About This Project</Link></span>
-                  </div>
-                </div>
-                <div className="screenshot" key={project.id}>
-                <h3>{project.project_name}</h3>
+                <div
+                  className="screenshot inactive"
+                  key={project.id}
+                  id={screenshotID}
+                  onClick={() => handleClick(screenshotID)}
+                >
+                  <h3>{project.client_name}</h3>
                   <Image
                     src={project.screenshot}
                     alt={project.project_name}
